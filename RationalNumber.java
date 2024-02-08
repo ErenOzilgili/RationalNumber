@@ -48,4 +48,9 @@ public class RationalNumber{
         
     }
 
+    public String toString(){
+        return this.numerator + "/" + this.denominator;
+        
+    }
+
 }
