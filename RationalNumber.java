@@ -27,7 +27,7 @@ public class RationalNumber{
         int min = Math.abs(Math.min(rationalMain.getNumerator(), rationalMain.getDenominator()));
         int max = Math.abs(Math.max(rationalMain.getNumerator(), rationalMain.getDenominator()));
 
-        while(max % min != 0 || min != 1){
+        while(max % min != 0){
             int temp = min;
             min = max % min;
             max = temp;
@@ -50,7 +50,7 @@ public class RationalNumber{
 
     public String toString(){
         return this.numerator + "/" + this.denominator;
-        
+
     }
 
 }
