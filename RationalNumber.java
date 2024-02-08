@@ -12,7 +12,7 @@ public class RationalNumber{
      * -If denominator = 0, we fix it to arbitrary number, here it was used as 1;
      * -Signs are issued as wished above; (See the comments above the instance variables)
      * -Numerator and denomnator are then simplified to their absolute form by dividing
-     * them with their gratest common divisor;
+     *  them with their gratest common divisor;
      */
     public RationalNumber(int numerator, int denominator){
         if(denominator == 0){
@@ -24,10 +24,14 @@ public class RationalNumber{
                 this.denominator = (-1) * denominator;
                 this.numerator = (-1) * numerator;
             }
+            else{
+                this.denominator = denominator;
+                this.numerator = numerator;
+            }
 
         }
-
-        int gcd = greatestCommonDivisor(this);
+        
+        int gcd = greatestCommonDivisor();
 
         this.numerator /= gcd;
         this.denominator /= gcd;
@@ -37,8 +41,8 @@ public class RationalNumber{
     /*
      * -Static method;
      * -Addition is performed by simple 
-     * summation rules, then a new Rational Number 
-     * is assigned to return the result;
+     *  summation rules, then a new Rational Number 
+     *  is assigned to return the result;
      */
     public static RationalNumber sumOfRationals(RationalNumber r1, RationalNumber r2){
         int numNew = ( r1.getNumerator() * r2.getDenominator() + r1.getDenominator() * r2.getNumerator() );
@@ -48,6 +52,9 @@ public class RationalNumber{
 
     }
 
+    /*
+     * -Above summation method with instance usage;
+     */
     public RationalNumber sumOfRationals(RationalNumber r2){
         int numNew = ( this.getNumerator() * r2.getDenominator() + this.getDenominator() * r2.getNumerator() );
         int denomNew = ( this.getDenominator() * r2.getDenominator() );
@@ -59,25 +66,28 @@ public class RationalNumber{
     /* 
      * -Static method;
      * -Substraction is performed by utilizing
-     * the method named sumOfRationals;
+     *  the method named sumOfRationals;
      */
-    public static void subtractionOfRationals(RationalNumber r1, RationalNumber r2){
-        sumOfRationals( r1, new RationalNumber( (-1) * r2.getNumerator(), r2.getDenominator()) );
+    public static RationalNumber subtractionOfRationals(RationalNumber r1, RationalNumber r2){
+        return sumOfRationals( r1, new RationalNumber( (-1) * r2.getNumerator(), r2.getDenominator()) );
 
     }
 
-    public void subtractionOfRationals(RationalNumber r2){
-        sumOfRationals( this, new RationalNumber( (-1) * r2.getNumerator(), r2.getDenominator()) );
+    /*
+     * -Above subtraciton method with instance usage;
+     */
+    public RationalNumber subtractionOfRationals(RationalNumber r2){
+        return sumOfRationals( this, new RationalNumber( (-1) * r2.getNumerator(), r2.getDenominator()) );
 
     }
 
     /*
      * -This private method finds the greatest common divisor of the numerator and
-     * the denominator of a given Rational Number by using Euclidean Algorithm;
+     *  the denominator of the instance RationalNumber by using Euclidean Algorithm;
      */
-    private int greatestCommonDivisor(RationalNumber rationalMain){
-        int min = Math.abs(Math.min(rationalMain.getNumerator(), rationalMain.getDenominator()));
-        int max = Math.abs(Math.max(rationalMain.getNumerator(), rationalMain.getDenominator()));
+    private int greatestCommonDivisor(){
+        int min = Math.min( Math.abs(this.getNumerator()) , this.getDenominator() );
+        int max = Math.max( Math.abs(this.getNumerator()) , this.getDenominator() );
 
         while(max % min != 0){
             int temp = min;
