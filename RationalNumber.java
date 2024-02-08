@@ -1,7 +1,7 @@
 public class RationalNumber{
 
     /**
-     * Class Implemented for Operations with Rational Numbers
+     * Class Implemented for Operations on Rational Numbers
      * @author Eren Özilgili
      * @version
      */
