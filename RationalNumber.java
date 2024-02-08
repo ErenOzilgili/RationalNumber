@@ -3,6 +3,7 @@ public class RationalNumber{
     /**
      * Class Implemented for Operations with Rational Numbers
      * @author Eren Özilgili
+     * @version
      */
 
     /*
