@@ -1,5 +1,24 @@
 public class RationalNumber{
 
+    /**
+     * Class Implemented for Operations with Rational Numbers
+     * @author Eren Özilgili
+     */
+
+    /*
+     * Below are the methods implemented in this class with their corresponding arrangement:
+     * -------------------------------------------------------------------------------------
+     * -(1) Instance Variables (For instances)
+     * -(2) Constructors (For instances)
+     * -(3) Public Static Methods 
+     * -(4) Private Static Methods
+     * -(5) Private Methods (For instances)
+     * -(6) Public Methods (For instances)
+     * -(7) Getters and Setters
+     * -(8) toString Method for Displaying the Rational Number
+     */
+
+    //-(1) Instance Variables (For Instances)---------------------------------------
     /*
      * -Numerator holds an integer and sign of the rational number is identified here;
      * -Denominator holds a positive integer;
@@ -8,6 +27,7 @@ public class RationalNumber{
     private int numerator;
     private int denominator;
 
+    //-(2) Constructors (For instances)------------------------------------------
     /*
      * -If denominator = 0, we fix it to arbitrary number, here it was used as 1;
      * -Signs are issued as wished above; (See the comments above the instance variables)
@@ -38,6 +58,7 @@ public class RationalNumber{
 
     }
 
+    //-(3) Public Static Methods-------------------------------------------------
     /*
      * -Static method;
      * -Addition is performed by simple 
@@ -47,17 +68,6 @@ public class RationalNumber{
     public static RationalNumber sumOfRationals(RationalNumber r1, RationalNumber r2){
         int numNew = ( r1.getNumerator() * r2.getDenominator() + r1.getDenominator() * r2.getNumerator() );
         int denomNew = ( r1.getDenominator() * r2.getDenominator() );
-        
-        return new RationalNumber(numNew, denomNew);
-
-    }
-
-    /*
-     * -Above summation method with instance usage;
-     */
-    public RationalNumber sumOfRationals(RationalNumber r2){
-        int numNew = ( this.getNumerator() * r2.getDenominator() + this.getDenominator() * r2.getNumerator() );
-        int denomNew = ( this.getDenominator() * r2.getDenominator() );
         
         return new RationalNumber(numNew, denomNew);
 
@@ -73,14 +83,9 @@ public class RationalNumber{
 
     }
 
-    /*
-     * -Above subtraciton method with instance usage;
-     */
-    public RationalNumber subtractionOfRationals(RationalNumber r2){
-        return sumOfRationals( this, new RationalNumber( (-1) * r2.getNumerator(), r2.getDenominator()) );
+    //-(4) Private Static Methods----------------------------------------------
 
-    }
-
+    //-(5) Private Methods (For instances)--------------------------------------
     /*
      * -This private method finds the greatest common divisor of the numerator and
      *  the denominator of the instance RationalNumber by using Euclidean Algorithm;
@@ -100,8 +105,29 @@ public class RationalNumber{
 
     }
 
+    //-(6) Public Methods (For instances)---------------------------------------------------------
     /*
-     * -Below are listed getter methods for the instance variables 
+     * -Above summation method verison of the static function sumOfRationals with instance usage;
+     */
+    public RationalNumber sumOfRationals(RationalNumber r2){
+        int numNew = ( this.getNumerator() * r2.getDenominator() + this.getDenominator() * r2.getNumerator() );
+        int denomNew = ( this.getDenominator() * r2.getDenominator() );
+        
+        return new RationalNumber(numNew, denomNew);
+
+    }
+
+    /*
+     * -Above summation method verison of the static function sumOfRationals with instance usage;
+     */
+    public RationalNumber subtractionOfRationals(RationalNumber r2){
+        return sumOfRationals( this, new RationalNumber( (-1) * r2.getNumerator(), r2.getDenominator()) );
+
+    }
+
+    //-(7) Getters and Setters-------------------------------------------------
+    /*
+     * -Below are listed getter methods for the instance variables;
      */
     public int getNumerator(){
         return this.numerator;
@@ -113,6 +139,12 @@ public class RationalNumber{
         
     }
 
+    /*
+     * -Below are listed setter methods for the instance variables.
+     *  No setters are implemeneted so far;
+     */
+
+    //-(8) toString Method for Displaying the Rational Number--------------------------------------------
     /*
      * -toString method to showcase the Rational Number;
      */
