@@ -21,8 +21,8 @@ public class RationalNumber{
         }
         else{
             if(denominator < 0){
-                this.denominator = -1 * denominator;
-                this.numerator = -1 * numerator;
+                this.denominator = (-1) * denominator;
+                this.numerator = (-1) * numerator;
             }
 
         }
@@ -31,6 +31,28 @@ public class RationalNumber{
 
         this.numerator /= gcd;
         this.denominator /= gcd;
+
+    }
+
+    /*
+     * -Addition is performed by simple 
+     * summation rules, then a new Rational Number 
+     * is assigned to return the result;
+     */
+    public RationalNumber sumOfRationals(RationalNumber r1, RationalNumber r2){
+        int numNew = ( r1.getNumerator() * r2.getDenominator() + r1.getDenominator() * r2.getNumerator() );
+        int denomNew = ( r1.getDenominator() * r2.getDenominator() );
+        
+        return new RationalNumber(numNew, denomNew);
+
+    }
+
+    /*
+     * -Substraction is performed by utilizing
+     * the method named sumOfRationals;
+     */
+    public void subtractionOfRationals(RationalNumber r1, RationalNumber r2){
+        sumOfRationals( r1, new RationalNumber( (-1) * r2.getNumerator(), r2.getDenominator()) );
 
     }
 
