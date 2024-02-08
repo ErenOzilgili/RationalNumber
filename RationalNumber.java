@@ -35,11 +35,12 @@ public class RationalNumber{
     }
 
     /*
+     * -Static method;
      * -Addition is performed by simple 
      * summation rules, then a new Rational Number 
      * is assigned to return the result;
      */
-    public RationalNumber sumOfRationals(RationalNumber r1, RationalNumber r2){
+    public static RationalNumber sumOfRationals(RationalNumber r1, RationalNumber r2){
         int numNew = ( r1.getNumerator() * r2.getDenominator() + r1.getDenominator() * r2.getNumerator() );
         int denomNew = ( r1.getDenominator() * r2.getDenominator() );
         
@@ -47,12 +48,26 @@ public class RationalNumber{
 
     }
 
-    /*
+    public RationalNumber sumOfRationals(RationalNumber r2){
+        int numNew = ( this.getNumerator() * r2.getDenominator() + this.getDenominator() * r2.getNumerator() );
+        int denomNew = ( this.getDenominator() * r2.getDenominator() );
+        
+        return new RationalNumber(numNew, denomNew);
+
+    }
+
+    /* 
+     * -Static method;
      * -Substraction is performed by utilizing
      * the method named sumOfRationals;
      */
-    public void subtractionOfRationals(RationalNumber r1, RationalNumber r2){
+    public static void subtractionOfRationals(RationalNumber r1, RationalNumber r2){
         sumOfRationals( r1, new RationalNumber( (-1) * r2.getNumerator(), r2.getDenominator()) );
+
+    }
+
+    public void subtractionOfRationals(RationalNumber r2){
+        sumOfRationals( this, new RationalNumber( (-1) * r2.getNumerator(), r2.getDenominator()) );
 
     }
 
